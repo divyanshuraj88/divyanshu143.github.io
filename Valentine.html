@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Cutu Ji ❤️</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffb6c1, #ffd1dc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.9);
+    padding: 30px 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    position: relative;
+    width: 350px;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .buttons {
+    margin-top: 30px;
+    position: relative;
+    height: 80px;
+  }
+
+  button {
+    padding: 12px 28px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  #yesBtn {
+    background: #ff4d6d;
+    color: white;
+    font-size: 18px;
+  }
+
+  #noBtn {
+    background: #eee;
+    color: #333;
+    position: absolute;
+    right: 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .message {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #444;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card" id="questionCard">
+  <h1>💖 Will you be my Valentine? 💖</h1>
+
+  <div class="buttons">
+    <button id="yesBtn">Yes ❤️</button>
+    <button id="noBtn">No 🙈</button>
+  </div>
+
+  <p style="margin-top:20px; font-size:13px; color:#777;">
+    Some love stories don’t allow “No” 😌
+  </p>
+</div>
+
+<div class="card hidden" id="finalCard">
+  <div class="message">
+    I know I made a lot of mistakes…<br><br>
+    Par <b>tumse pyaar karte karte</b> sab seekh raha hoon 🥺❤️<br><br>
+    Ab poori koshish rahegi ki woh galtiyan repeat na ho…<br><br>
+    <b>Thanks for choosing YES</b>, my dear cutu ji 😍❤️<br><br>
+    I love you sooo much 😘😘😘😘❤️❤️
+  </div>
+</div>
+
+<script>
+  const noBtn = document.getElementById("noBtn");
+  const yesBtn = document.getElementById("yesBtn");
+  const questionCard = document.getElementById("questionCard");
+  const finalCard = document.getElementById("finalCard");
+
+  let yesScale = 1;
+
+  noBtn.addEventListener("mouseover", moveNo);
+  noBtn.addEventListener("click", moveNo);
+
+  function moveNo() {
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 80 - 40;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
+    yesScale += 0.1;
+    yesBtn.style.transform = `scale(${yesScale})`;
+  }
+
+  yesBtn.addEventListener("click", () => {
+    questionCard.classList.add("hidden");
+    finalCard.classList.remove("hidden");
+  });
+</script>
+
+</body>
+</html>
